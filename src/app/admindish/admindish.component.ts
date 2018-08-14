@@ -46,15 +46,16 @@ displayedColumns: string[] = ["Action","id", "name","price","img","cate","symbol
     }
     else{
     const fd=new FormData;
-    //fd.append('dish_id',this.dish_id.toString());
     fd.append('dish_name',this.dish_name);
     fd.append('dish_price',this.dish_price.toString());
     fd.append('dish_img',this.selectFile);
     fd.append('fk_cusines_id',this.fk_cusines_id.toString());
+    console.log(fd);
     this._dish.addDish(fd).subscribe(
       (data:any)=>{
         this.disharr.push(new Dish(data.insertId,this.dish_name,this.dish_price,this.dish_img,this.fk_cusines_id));
         alert("added");
+        console.log(data);
         // console.log(data.insertId);
         // console.log(this.dish_name);
         // console.log(this.dish_price);
