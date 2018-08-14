@@ -1,0 +1,64 @@
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-primary" *ngFor="let item of cusinearr" (click)="onclick(item.cusines_name)">{{item.cusines_name}}</button>
+  <button class="btn btn-primary" (click)="onPastOrder()">Past Orders</button>
+  <button class="btn btn-primary" (click)="onlogout()">LogOut</button>
+</div>
+
+<div class="row">
+  <div class="col-md-7">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let item of cus_disharr,let i=index" (click)="onItem(item)">
+        <div class="thumbnail" style="height: 200px;width: 200px">
+          <img src="http://localhost:3000/images/product_img/{{item.dish_img}}" style="height: 100px;width: 100px" alt="...">
+          <div class="caption">
+            <h3>{{item.dish_name}}</h3>
+            <p>price:{{item.dish_price}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <table class="table">
+      <br>
+      <thead>
+      <th>
+      </th>
+      <th>
+        Item
+      </th>
+      <th>
+        Qty
+      </th>
+      <th></th>
+      <th>Remarks:</th>
+      <th>
+        Price
+      </th>
+      </thead>
+      <tr *ngFor="let item of arr,let i=index">
+        <td style="border-radius: 10px">
+            <img src="http://localhost:3000/images/product_img/{{item.dish_img}}" style="height: 20px;width: 20px" alt="...">
+        </td>
+        <td>{{item.dish_name}}</td>
+        <td><select [(ngModel)]="qty[i]" (change)="onselectChange(item,i)">
+            <option *ngFor="let x of qtyarr">{{x}}</option>
+            </select></td>
+        <td><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true" (click)="onDel(item,i)"></span></td>
+        <td><input type="text" [(ngModel)]="ramarkarr[i]"></td>
+        <td>{{price[i]}}</td>
+      </tr>
+      <br>
+      <br>
+      <tr><b>Grand Total:--</b>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b>{{total}}</b></td>
+      </tr>
+    </table>
+    <button *ngIf="arr.length>0" class="btn btn-success" (click)="onAddToBill()">PROCEED TO CHECKOUT</button>
+  </div>
+</div>

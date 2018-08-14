@@ -1,0 +1,122 @@
+<div class="container">
+  <h1>
+    <b>SIGN UP</b>
+  </h1>
+</div>
+<hr>
+<font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Please Fill Up All The Fields For SignUp</font>
+<br>
+<form (ngSubmit)="onSignup()" #f="ngForm">
+  <div class="container">
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" type="text" [(ngModel)]="Email_Id" name="Email_Id" #id="ngModel" email required>
+      </mat-form-field>
+      <label [hidden]="id.valid || id.untouched">
+        <label [hidden]="id?.errors?.required" class="alert alert-danger">
+          Email is invalid
+        </label>
+
+        <label [hidden]="!id.errors?.required" class="alert alert-danger">
+          Email is required
+        </label>
+      </label>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Password" [(ngModel)]="Password" name="Password" #pass="ngModel" required minlength="8">
+      </mat-form-field>
+      <label [hidden]="pass.valid || pass.untouched">
+        <label [hidden]="pass?.errors?.required" class="alert alert-danger">
+          password is to short..
+        </label>
+        <label [hidden]="!pass.errors?.required" class="alert alert-danger">
+          pass is required
+        </label>
+      </label>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Username" [(ngModel)]="Username" name="Username" #user="ngModel" required>
+      </mat-form-field>
+      <label [hidden]="user.valid || user.untouched">
+        <label [hidden]="!user.errors?.required" class="alert alert-danger">
+          username is required..
+        </label>
+      </label>
+    </div>
+    <b>Gender:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; male
+      <input type="radio" [(ngModel)]="rbtn1" value="male" name="gen"> female
+      <input type="radio" [(ngModel)]="rbtn1" value="female" name="gen">
+    </b>
+    <!-- <mat-radio-group [(ngModel)]="rbtn1">
+        male
+        <mat-radio-button value="male" name="gen" checked="checked"></mat-radio-button>
+        female
+        <mat-radio-button value="female" name="gen"></mat-radio-button>
+      </mat-radio-group> -->
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Age" [(ngModel)]="Age" name="Age" required #age="ngModel">
+      </mat-form-field>
+      <label [hidden]="user.valid || user.untouched">
+        <label [hidden]="!user.errors?.required" class="alert alert-danger">
+          age is required..
+        </label>
+      </label>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Mobile" [(ngModel)]="Mobile" name="Mobile" maxlength="10" #mob="ngModel" required>
+      </mat-form-field>
+      <label [hidden]="mob.valid || mob.untouched">
+        <label [hidden]="!mob.errors?.required" class="alert alert-danger">
+          mobile is required..
+        </label>
+      </label>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Address" [(ngModel)]="Address" name="Address" #add="ngModel" required>
+      </mat-form-field>
+      <label [hidden]="add.valid || add.untouched">
+        <label [hidden]="!add.errors?.required" class="alert alert-danger">
+          address is required..
+        </label>
+      </label>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="City" [(ngModel)]="City" name="City" #city="ngModel" required>
+      </mat-form-field>
+      <label [hidden]="city.valid || city.untouched">
+        <label [hidden]="!city.errors?.required" class="alert alert-danger">
+          city is required..
+        </label>
+      </label>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input type="text" matInput placeholder="Pincode" [(ngModel)]="Pincode" name="Pincode" maxlength="6" #pin="ngModel" required>
+    </mat-form-field>
+    <label [hidden]="pin.valid || pin.untouched">
+      <label [hidden]="!pin.errors?.required" class="alert alert-danger">
+        pincode is required..
+      </label>
+    </label>
+  </div>
+  <div class="form-group">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <button type="submit" [disabled]="!f.valid" mat-fab>Signup</button>
+          <br>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button (click)="onBack()" mat-fab>Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
