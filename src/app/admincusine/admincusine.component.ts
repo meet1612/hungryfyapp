@@ -71,6 +71,7 @@ export class AdmincusineComponent implements OnInit {
     this.cusinearr.splice(this.cusinearr.indexOf(this.delArr[this.i]),1);
     }
     }
+    this.ngOnInit();
     this.dataSource.data=this.cusinearr;
     }
   )};

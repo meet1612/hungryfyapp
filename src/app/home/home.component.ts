@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
   total:number=0;
   i:number;
   x:number=0;
-  uid:string="meetjshah82@gmail.com";
   a:number;
   b:number;
 
@@ -101,7 +100,7 @@ export class HomeComponent implements OnInit {
   }
   onAddToBill(){
 
-          this._bill.addBill(new Bill(this.total,this.uid)).subscribe(
+          this._bill.addBill(new Bill(this.total,localStorage.getItem('email'))).subscribe(
             (data:any)=>{
               console.log(data);
               console.log(this.ramarkarr);

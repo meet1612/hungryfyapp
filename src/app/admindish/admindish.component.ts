@@ -56,11 +56,12 @@ displayedColumns: string[] = ["Action","id", "name","price","img","cate","symbol
         this.disharr.push(new Dish(data.insertId,this.dish_name,this.dish_price,this.dish_img,this.fk_cusines_id));
         alert("added");
         console.log(data);
-        // console.log(data.insertId);
-        // console.log(this.dish_name);
-        // console.log(this.dish_price);
-        // console.log(this.dish_img);
-        // console.log(this.fk_cusines_id);
+        this.ngOnInit();
+        //  console.log(data.insertId);
+        //  console.log(this.dish_name);
+        //  console.log(this.dish_price);
+        //  console.log(this.dish_img);
+        //  console.log(this.fk_cusines_id);
         this.dataSource.data=this.disharr;
       }
     );
